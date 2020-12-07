@@ -34,8 +34,8 @@ class MemberMapperTest {
 		
 	}
 	
-	//@Test
-	void setInsertFIleTest() throws Exception{
+	@Test
+	void setInsertFileTest() throws Exception{
 		MemberFileVO memberFileVO = new MemberFileVO();
 		memberFileVO.setId("id1");
 		memberFileVO.setFileName("fileName");
