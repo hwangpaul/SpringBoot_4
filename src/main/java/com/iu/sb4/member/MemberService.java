@@ -1,11 +1,15 @@
 package com.iu.sb4.member;
 
-public interface MemberService {
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class MemberService {
 	
-	public int setInsert(MemberVO memberVO) throws Exception;
+	@Autowired
+	private MemberMapper memberMapper;
 	
-	public int setInsertFile(MemberFileVO memberFileVO) throws Exception;	
+	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception{
+		return memberMapper.getMemberLogin(memberVO);
 		
-	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception;
+	}
 
 }

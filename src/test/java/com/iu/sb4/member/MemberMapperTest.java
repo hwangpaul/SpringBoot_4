@@ -46,5 +46,17 @@ class MemberMapperTest {
 		System.out.println("member File");
 		assertEquals(1, result);
 	}
+	
+	@Test
+	void getMemberLoginTest() throws Exception{
+		MemberVO memberVO = new MemberVO();
+		memberVO.setId("id1");
+		memberVO.setPw("pw1");
+		
+		memberVO = memberMapper.getMemberLogin(memberVO);
+		
+		assertNotNull(memberVO);
+		
+	}
 
 }

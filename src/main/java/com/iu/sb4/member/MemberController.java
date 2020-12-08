@@ -1,4 +1,4 @@
-package com.iu.sb4.member.memberuser;
+package com.iu.sb4.member;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,17 +15,17 @@ import com.iu.sb4.member.MemberVO;
 
 @Controller
 @RequestMapping("/member/**")
-public class MemberUserController {
+public class MemberController {
 	
 	@Autowired
-	private MemberUserService memberUserService;
+	private MemberService memberService;
 	
 	@PostMapping("memberLogin")
 	public ModelAndView getMemberLogin(MemberVO memberVO, HttpServletResponse response ,HttpSession session) throws Exception{
 		System.out.println("Member Login Post");
 		ModelAndView mv = new ModelAndView();
 		
-		memberVO = memberUserService.getMemberLogin(memberVO);
+		memberVO = memberService.getMemberLogin(memberVO);
 		
 		session.setAttribute("member", memberVO);
 		
