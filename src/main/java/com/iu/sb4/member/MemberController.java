@@ -20,6 +20,23 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("memberLogOut")
+	public String getMemberLogout(HttpSession session) throws Exception{
+		session.invalidate();
+		
+		return "redirect:../";
+	}
+		
+	@GetMapping("memberLogin")
+	public ModelAndView getMemberLogin() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("memberLogin");
+		
+		mv.setViewName("member/memberLogin");
+		
+		return mv;	
+	}
+	
 	@PostMapping("memberLogin")
 	public ModelAndView getMemberLogin(MemberVO memberVO, HttpServletResponse response ,HttpSession session) throws Exception{
 		System.out.println("Member Login Post");
@@ -27,23 +44,24 @@ public class MemberController {
 		
 		memberVO = memberService.getMemberLogin(memberVO);
 		
-		session.setAttribute("member", memberVO);
 		
 		if(memberVO != null) {
+			session.setAttribute("member", memberVO);
 			mv.setViewName("redirect:../");
 		}else {
-			mv.setViewName("member/memberLogin");
+			String message = "Login Fail";
+			mv.addObject("msg", message);
+			mv.addObject("path", "./memberLogin");
+			mv.setViewName("common/result");
 		}
 		
 		return mv;
 	}
 	
-	@GetMapping("memberLogin")
-	public ModelAndView getMemberLogin() throws Exception{
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/memberLogin");
-		System.out.println("memberLogin");
-		return mv;	
+	@GetMapping("memberPage")
+	public void getMemberPage() throws Exception{
+		
+		
 	}
 
 }

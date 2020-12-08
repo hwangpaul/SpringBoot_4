@@ -16,20 +16,21 @@
 <div class="container">
   <h3>Member Login Page V1</h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
-   <form action="./memberLogin" method="post">
-    <div class="form-group">
-      <label for="id">ID:</label>
-      <input type="text" class="form-control" id="id" placeholder="Enter id" name="id">
-    </div>
-    <div class="form-group">
-      <label for="pw">PW:</label>
-      <input type="password" class="form-control" id="pw" placeholder="pw" name="pw">
-    </div>
-	
-    
-    <button type="submit" class="btn btn-default">Login</button>
-  </form>
   
+  <form action="./memberLogin" method="post">
+  <div class="form-group">
+    <label for="id">ID:</label>
+    <input type="text" class="form-control" id="id" name="id">
+  </div>
+  <div class="form-group">
+    <label for="pw">Password:</label>
+    <input type="password" class="form-control" id="pw" name="pw">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-default">Login</button>
+</form>
 </div>
 </body>
 

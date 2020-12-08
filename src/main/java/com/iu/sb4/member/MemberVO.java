@@ -1,5 +1,7 @@
 package com.iu.sb4.member;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -11,5 +13,6 @@ public class MemberVO {
 	private String age;
 	private String email;
 	
+	private List<MemberRoleVO> roles;
 
 }
