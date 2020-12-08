@@ -33,6 +33,28 @@ public class NoticeController {
 		return "notice";
 	}
 	
+	//@PostMapping("noticeUpdate")
+	public ModelAndView setUpdatePost(BoardVO boardVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = noticeService.setUpdate(boardVO);
+		
+		return mv;
+	}
+	
+	//@GetMapping("noticeUpdate")
+	public ModelAndView setUpdate(BoardVO boardVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("Update");
+		
+		boardVO = noticeService.getOne(boardVO);
+		
+		mv.addObject("vo", boardVO);
+		
+		mv.setViewName("board/boardUpdate");
+		return mv;
+	}
+	
 	@GetMapping("noticeFileDown")
 	public ModelAndView getNoticeFileDown(FileVO fileVO) throws Exception{
 		ModelAndView mv = new ModelAndView();

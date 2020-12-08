@@ -13,14 +13,11 @@
 <c:import url="../template/header.jsp"></c:import>
   
 <div class="container">
-  <h3>${board} Select Page V1</h3>
+  <h3>${board} Update Page V1</h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
-   
-   <form action="" id="frm">  
-   		<input type="hidden" value="${vo.num}" name="num">
-   	</form>
-   	
+   <form action="./noticeUpdate" method="post" id="frm">
     <div class="form-group">
+    <input type="hidden" value="${vo.num}" name="num">
       <label for="title">Title:</label>
       <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="${vo.title}">
     </div>
@@ -34,32 +31,15 @@
  		<textarea class="form-control" rows="5" id="contents" name="contents">${vo.contents}</textarea>
 	</div>
 	
-	<h3>Files</h3>
-	<c:forEach items="${vo.files}" var="file">  
-	<p><a href="${board}FileDown?fnum=${file.fnum}">${file.oriName}</a></p>
-	
-  	</c:forEach>
   	
-  	<button class="btn btn-primary go" id="btnUpdate" title="Update">Update</button>
-  	<button class="btn btn-danger go" id="btnDelete" title="Delete">Delete</button>  
+  	<button type="submit" class="btn btn-primary" id="update">Update</button>
+ </form>
   
 </div>
 </body>
 <script type="text/javascript">
-	$(".go").click(function() {
-		var board = '${board}';
-		var t = $(this).attr("title");
-		
-		$("#frm").attr("action", board+t);
 
-		if(t=='Delete'){
-			$("#frm").attr("method", "post");
-		}
-
-		$("#frm").submit();
-		
-		});
 	
-
 </script>
+
 </html>
