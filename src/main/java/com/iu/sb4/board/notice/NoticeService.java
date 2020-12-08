@@ -65,7 +65,7 @@ public class NoticeService implements BoardService{
 			FileVO fileVO = new FileVO();
 			fileVO.setFileName(fileName);
 			fileVO.setOriName(multipartFile.getOriginalFilename());
-			//fileVO.setNum(boardVO.getNum());
+			fileVO.setNum(boardVO.getNum());
 			
 			
 			result = noticeMapper.setInsertFile(fileVO);

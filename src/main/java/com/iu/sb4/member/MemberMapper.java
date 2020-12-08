@@ -7,7 +7,7 @@ public interface MemberMapper {
 	
 	public int setInsert(MemberVO memberVO) throws Exception;
 	
-	public int setInserFile(MemberFileVO memberFileVO) throws Exception;
+	public int setInsertFile(MemberFileVO memberFileVO) throws Exception;
 	
 	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception;
 

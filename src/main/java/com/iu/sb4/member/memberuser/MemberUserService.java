@@ -21,7 +21,7 @@ public class MemberUserService implements MemberService{
 	}
 
 	@Override
-	public int setInserFile(MemberFileVO memberFileVO) throws Exception {
+	public int setInsertFile(MemberFileVO memberFileVO) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}

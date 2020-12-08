@@ -10,7 +10,7 @@
    		</insert>
    		
    		<insert id="setInsertFile" parameterType="MemberFileVO">
-   			insert into memberFile (id, fileNmae, oriName) values(#{id}, #{fileName}, #{oriName})
+   			insert into memberFile (id, fileName, oriName) values(#{id}, #{fileName}, #{oriName})
    		</insert>
    	
 		<select id="getMemberLogin" parameterType="MemberVO" resultType="MemberVO">

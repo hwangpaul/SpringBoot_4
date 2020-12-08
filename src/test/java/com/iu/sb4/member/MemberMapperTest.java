@@ -38,10 +38,10 @@ class MemberMapperTest {
 	void setInsertFileTest() throws Exception{
 		MemberFileVO memberFileVO = new MemberFileVO();
 		memberFileVO.setId("id1");
-		memberFileVO.setFileName("fileName");
-		memberFileVO.setOriName("oriName");
+		memberFileVO.setFileName("fileName2");
+		memberFileVO.setOriName("oriName2");
 		
-		int result = memberMapper.setInserFile(memberFileVO);
+		int result = memberMapper.setInsertFile(memberFileVO);
 		
 		System.out.println("member File");
 		assertEquals(1, result);
