@@ -2,9 +2,13 @@ package com.iu.sb4.board.notice;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -83,16 +87,7 @@ public class NoticeController {
 		
 	}
 	
-	@GetMapping("noticeWrite")
-	public ModelAndView setInsert() throws Exception{
-		ModelAndView mv = new ModelAndView();
-		System.out.println("Board Write");
-		
-
-		mv.setViewName("board/boardWrite");
-		return mv;
-	}
-		
+			
 	@GetMapping("noticeList")
 	public ModelAndView getList(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -107,9 +102,22 @@ public class NoticeController {
 		return mv;
 	}
 	
-	@PostMapping("noticeWrite")
-	public String setinsert(BoardVO boardVO, MultipartFile [] files) throws Exception{
+	@GetMapping("noticeWrite")
+	public String setInsert(BoardVO boardVO) throws Exception{
+		
+		System.out.println("Board Write");
+		
+
+		return"board/boardWrite";
+	}
 	
+	@PostMapping("noticeWrite")
+	public String setinsert(@Valid BoardVO boardVO,BindingResult bindingResult, MultipartFile [] files) throws Exception{
+		System.out.println("Notice Write ------------------");
+		if(bindingResult.hasErrors()) {
+			System.out.println("검증 실패 ----------------");
+			return "board/boardWrite";
+		}
 		
 		int result = noticeService.setInsert(boardVO, files);
 		
