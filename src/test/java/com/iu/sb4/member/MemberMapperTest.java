@@ -25,7 +25,7 @@ class MemberMapperTest {
 		memberVO.setId("test2");
 		memberVO.setPw("test2");
 		memberVO.setName("test name");
-		memberVO.setAge("20");
+		memberVO.setAge(20);
 		memberVO.setEmail("test@email.com");
 		
 		int result = memberMapper.setInsert(memberVO);
