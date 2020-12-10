@@ -7,11 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.iu.sb4.board.notice.NoticeService;
 import com.iu.sb4.util.Pager;
 
-@Controller
+@RestController
 @RequestMapping("/board/**")
 public class BoardController {
 	
@@ -19,7 +20,6 @@ public class BoardController {
 	private NoticeService noticeService;
 	
 	@GetMapping("boardSelect")
-	@ResponseBody
 	public BoardVO boardSelect(BoardVO boardVO) throws Exception{
 		System.out.println("Board Select Controller");
 		
@@ -39,7 +39,6 @@ public class BoardController {
 	}
 	
 	@GetMapping("boardList")
-	@ResponseBody
 	public List<BoardVO> boardList(Pager pager) throws Exception{
 		System.out.println("Board List Controller");	
 		
