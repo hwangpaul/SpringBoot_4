@@ -25,15 +25,16 @@ public class MemberController {
 	
 	@PostMapping("memberJoin") 
 	public ModelAndView setInsert(@Valid MemberVO memberVO, BindingResult bindingResult, MultipartFile files) throws Exception{
-		System.err.println("Join Post");
+		System.out.println("Join Post");
 		ModelAndView mv = new ModelAndView();
 	
-		if(bindingResult.hasErrors()) {
+		if(memberService.getMemberError(memberVO, bindingResult)) {
 			mv.setViewName("member/memberJoin");
 			return mv;
 		}
+		
 		//검증이 통과일 때 실행하는 코드 작성
-		//int result = memberService.setInsert(memberVO);
+		
 		
 		return mv;
 	}
