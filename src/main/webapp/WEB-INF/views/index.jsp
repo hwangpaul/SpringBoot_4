@@ -33,6 +33,67 @@
   
   <a href="./rest/member/iu/1">Click</a>
   
+  <button class="btn btn-danger" id="btn">Click Me</button>
+  <button class="btn btn-primary" id="list">List</button>
+  
+  <script type="text/javascript">
+
+  $("#btn").click(function(){
+	$.ajax({
+		type:"GET",
+		url:"board/boardSelect",
+		data:{
+				num:120
+			},
+			success:function(data){
+					alert(data);
+				}
+
+		});
+	  
+	  
+   });
+
+  $("#list").click(function() {
+	$.ajax({
+		type:"GET",
+		url:"board/boardList",
+		data:{
+			curPage:3
+			},
+		success:function(data){
+				console.log(data);
+			}
+	
+		});
+	
+	  });
+
+  /*	$("#btn").click(function(){
+		$.get("https://api.manana.kr/exchange.json", function(data){
+			for(i=0; i<data.length; i++){
+			console.log(data[i].kr);
+
+			}
+		})
+	})
+
+ */
+  
+/*	var v = '{"name":"iu", "age":27, "job":{"sing":"top", "actor":"second"}, "food":["Steak", "Bread", "Milk"] }';
+	v=JSON.parse(v);
+	//변수명.json의키(name)
+	alert(v.name);
+	alert(v.age);
+	alert(v.job.sing);
+	alert(v.job.actor);
+	alert(v.food[1]);
+	for(i=0; i<v.food.length; i++){
+		console.log(v.food[i])		
+	}
+*/	
+  </script>
+  
 </div>
 </body>
 </html>
