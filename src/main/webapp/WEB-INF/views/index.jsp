@@ -30,6 +30,9 @@
    <h1>Default : <spring:message code="use" text="Default Message"></spring:message> </h1>
   <img alt="" src="./images/image_1.png">
   <h3>var : ${n}</h3>
+  
+  <a href="./rest/member/iu/1">Click</a>
+  
 </div>
 </body>
 </html>
